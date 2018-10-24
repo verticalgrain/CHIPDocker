@@ -80,12 +80,17 @@ make install
 popd
 
 echo -e "\n Installing CHIP-tools"
-if [ -d CHIP-tools ]; then
-  pushd CHIP-tools
-  git pull
-  popd
-fi
-git clone https://github.com/NextThingCo/CHIP-tools.git
+# if [ -d CHIP-tools ]; then
+#   pushd CHIP-tools
+#   git pull
+#   popd
+# fi
+# git clone https://github.com/NextThingCo/CHIP-tools.git
+# The CHIP-tools repository has changed names
+echo -e "\n Hope this works"
+mkdir CHIP-tools
+# Using 'username' as a user name seems to fix the error "fatal: could not read username for ..."
+git clone http://username@github.com/NextThingCo/CHIP-tools-backup CHIP-tools
 
 echo -e "\n Installing CHIP-buildroot"
 if [ ! -d CHIP-buildroot ]; then

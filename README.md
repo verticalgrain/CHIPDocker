@@ -3,14 +3,14 @@
 ## Table of Contents
 - [Introduction](#introduction)
 - [Installing Docker](#installing-docker)
-- [Installing Docker on the CHIP](#installing-docker-on-the-chip)
 - [Creating the CHIP SDK Image](#creating-the-chip-sdk-image)
     - [For Docker on x64 Systems](#for-docker-on-x64-systems)
-    - [For Docker on the CHIP](#for-docker-on-the-chip)
 - [Flashing the CHIP](#flashing-the-chip)
 - [Resources](#resources)
 
 ## Introduction
+This is a fork of the original by Harsha Kuchampudi. The original can be found at: https://github.com/hkuchampudi/CHIPDocker.git
+
 This repository contains the Dockerfiles and setup scripts necessary to build Docker images containing the CHIP SDK for Docker running on x64 systems as well as the CHIP. If you are new to Docker, you may be wondering what Docker is and why you would want to use it to flash your CHIP. From Docker's website:
 > Docker containers wrap a piece of software in a complete filesystem that contains everything needed to run: code, runtime, system tools, system libraries – anything that can be installed on a server. This guarantees that the software will always run the same, regardless of its environment.
 
@@ -19,23 +19,12 @@ Essentially, Docker allows us to flash the CHIP easily regardless of the host op
 ## Installing Docker
 Follow the install guide for your operating system [here](https://www.docker.com/products/overview#/install_the_platform).
 
-## Installing Docker on the CHIP
-While it is still experimental, you can install Docker on your CHIP by SSHing into the CHIP and issuing the command `curl -sSL https://github.com/DieterReuter/arm-docker-fixes/raw/master/002-fix-install-docker-on-chip-computer/apply-fix-002.sh | bash`. You can follow [the guide here](http://blog.hypriot.com/post/install-docker-on-chip-computer/) for more detailed instructions.
+## Creating the Docker Image we will use to run the CHIP SDK
 
-## Creating the CHIP SDK Image
-
-### For Docker on x64 Systems
+### Steps to set up the CHIP SDK in Docker
 1. Once you have downloaded Docker, clone/download this repository (if you downloaded the .zip file, extract it).
 2. Open a terminal and `cd` into the CHIPDocker folder.
 3. Next, `cd` into the `x64` folder.
-4. Enter the following command to build the image: `docker build -t "chip-image" .` (be sure that you add the period at the end; it's important).
-5. Wait for the image to build (it could take a while).
-6. When the image has been successfully built, you should get the message: `Successfully built XXXXXXXXXXXX`.
-
-### For Docker on the CHIP
-1. Once you have downloaded Docker, clone/download this repository (if you downloaded the .zip file, extract it).
-2. Open a terminal and `cd` into the CHIPDocker folder.
-3. Next, `cd` into the `arm` folder.
 4. Enter the following command to build the image: `docker build -t "chip-image" .` (be sure that you add the period at the end; it's important).
 5. Wait for the image to build (it could take a while).
 6. When the image has been successfully built, you should get the message: `Successfully built XXXXXXXXXXXX`.
